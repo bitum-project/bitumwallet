@@ -29,12 +29,9 @@ import (
 // files.
 func networkDir(dataDir string, chainParams *chaincfg.Params) string {
 	netname := chainParams.Name
-	// Be cautious of v2+ testnets being named only "testnet".
 	switch chainParams.Net {
-	case 0x48e7a065: // testnet2
-		netname = "testnet2"
 	case wire.TestNet:
-		netname = "testnet3"
+		netname = "testnet"
 	}
 	return filepath.Join(dataDir, netname)
 }
