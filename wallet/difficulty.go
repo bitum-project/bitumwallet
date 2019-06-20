@@ -555,17 +555,17 @@ func (w *Wallet) validateHeaderChainDifficulties(dbtx walletdb.ReadTx, chain []*
 		}
 
 		// Validate ticket price
-		if deployments.DCP0001.Active(int32(h.Height), w.chainParams) {
-			sdiff, err := w.nextRequiredDCP0001PoSDifficulty(dbtx, parent, chain)
-			if err != nil {
-				return nil, errors.E(op, err)
-			}
-			if bitumutil.Amount(h.SBits) != sdiff {
-				err := errors.Errorf("%v has invalid PoS difficulty, got %v, want %v",
-					&hash, bitumutil.Amount(h.SBits), sdiff)
-				return chain[idx:], errors.E(op, errors.Consensus, err)
-			}
-		}
+		//if deployments.DCP0001.Active(int32(h.Height), w.chainParams) {
+		//	sdiff, err := w.nextRequiredDCP0001PoSDifficulty(dbtx, parent, chain)
+		//	if err != nil {
+		//		return nil, errors.E(op, err)
+		//	}
+		//	if bitumutil.Amount(h.SBits) != sdiff {
+		//		err := errors.Errorf("%v has invalid PoS difficulty, got %v, want %v",
+		//			&hash, bitumutil.Amount(h.SBits), sdiff)
+		//		return chain[idx:], errors.E(op, errors.Consensus, err)
+		//	}
+		//}
 
 		parent = h
 	}
