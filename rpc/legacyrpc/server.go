@@ -512,7 +512,7 @@ func (s *Server) websocketClientRPC(ctx context.Context, wsc *websocketClient) {
 
 // maxRequestSize specifies the maximum number of bytes in the request body
 // that may be read from a client.  This is currently limited to 4MB.
-const maxRequestSize = 1024 * 1024 * 4
+const maxRequestSize = 1024 * 1024 * 16
 
 // postClientRPC processes and replies to a JSON-RPC client request.
 func (s *Server) postClientRPC(w http.ResponseWriter, r *http.Request) {
