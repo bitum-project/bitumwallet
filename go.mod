@@ -1,7 +1,6 @@
 module github.com/bitum-project/bitumwallet
 
 require (
-	github.com/bitum-project/bitumd v0.0.0-00010101000000-000000000000
 	github.com/boltdb/bolt v1.3.1
 	github.com/decred/slog v1.0.0
 	github.com/golang/protobuf v1.3.1
