@@ -526,7 +526,7 @@ func (w *Wallet) validateHeaderChainDifficulties(dbtx walletdb.ReadTx, chain []*
 	for ; idx < len(chain); idx++ {
 		n := chain[idx]
 		h := n.Header
-		hash := h.BlockHash()
+		//hash := h.BlockHash()
 		if parent == nil && h.Height != 0 {
 			if idx == 0 {
 				var err error
@@ -540,19 +540,19 @@ func (w *Wallet) validateHeaderChainDifficulties(dbtx walletdb.ReadTx, chain []*
 		}
 
 		// Validate advertised and performed work
-		bits, err := w.nextRequiredPoWDifficulty(dbtx, parent, chain, h.Timestamp)
-		if err != nil {
-			return nil, errors.E(op, err)
-		}
-		if h.Bits != bits {
-			err := errors.Errorf("%v has invalid PoW difficulty, got %x, want %x",
-				&hash, h.Bits, bits)
-			return chain[idx:], errors.E(op, errors.Consensus, err)
-		}
-		err = blockchain.CheckProofOfWork(h, w.chainParams.PowLimit)
-		if err != nil {
-			return chain[idx:], errors.E(op, errors.Consensus, err)
-		}
+		//bits, err := w.nextRequiredPoWDifficulty(dbtx, parent, chain, h.Timestamp)
+		//if err != nil {
+		//	return nil, errors.E(op, err)
+		//}
+		//if h.Bits != bits {
+		//	err := errors.Errorf("%v has invalid PoW difficulty, got %x, want %x",
+		//		&hash, h.Bits, bits)
+		//	return chain[idx:], errors.E(op, errors.Consensus, err)
+		//}
+		//err = blockchain.CheckProofOfWork(h, w.chainParams.PowLimit)
+		//if err != nil {
+		//	return chain[idx:], errors.E(op, errors.Consensus, err)
+		//}
 
 		// Validate ticket price
 		//if deployments.DCP0001.Active(int32(h.Height), w.chainParams) {
